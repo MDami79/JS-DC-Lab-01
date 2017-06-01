@@ -9,7 +9,7 @@ const ranks = ['ace', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', '
 const rankScores = { ace: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9, ten: 10, jack: 11, king: 12, queen: 13 };
 
 class Card {
-	constructor(suit, rank){
+	constructor( rank, suit ){
 
 		this.suits = suit
 		this.ranks = rank
@@ -19,9 +19,11 @@ class Card {
 	}
 }
 
-//let SpadesOfSeven = new Card('hearts', 'seven');
-//console.log(SpadesOfSeven);
-
+/*
+//test to see if it works to build card
+let sevenOfhearts = new Card('hearts', 'seven');
+console.log(sevenOfhearts);
+*/
 
 class DeckOfCard{
 
@@ -37,33 +39,36 @@ class DeckOfCard{
 
 			}
 		}
+		return this.card;
 	}
-	dealCard(){
-		this.card
-	}
-//
+
 }
 
+/*
+//Check to print out deck
 let testDealCard = new DeckOfCard();
-
-
-
-//console.log(testDealCard.dealCard)
-
+console.log(testDealCard.createNewDeck())
+*/
 
 console.log()
 
 //Player class for players action
 class Player {
 
-	playCard(){
+	constructor(){
+		this.username = ""
+		this.hand = []
+	}
+
+	showCard(win, lose){
 
 	}
 
-	removeCard(){
+	loseCard(){
 
 	}
-	addCard(){
+
+	winCard(){
 
 	}
 
@@ -71,6 +76,26 @@ class Player {
 }
 
 
+
+
+ var prompt = require('prompt');
+ 
+  // 
+  // Start the prompt 
+  // 
+  prompt.start();
+ 
+  // 
+  // Get two properties from the user: username and email 
+  // 
+  prompt.get(['username', 'email'], function (err, result) {
+    // 
+    // Log the results. 
+    // 
+    console.log('Command-line input received:');
+    console.log('  username: ' + result.username);
+    console.log('  email: ' + result.email);
+  });
 
 // let createdeck = new DeckOfCard;
 
