@@ -25,6 +25,7 @@ let sevenOfhearts = new Card('hearts', 'seven');
 console.log(sevenOfhearts);
 */
 
+
 class DeckOfCard{
 
 	constructor(){
@@ -39,20 +40,76 @@ class DeckOfCard{
 
 			}
 		}
+		//console.log("This is the length " + this.card.length)
 		return this.card;
 	}
 
 }
 
-/*
-//Check to print out deck
-let testDealCard = new DeckOfCard();
-console.log(testDealCard.createNewDeck())
-*/
+//instance
+let deck = new DeckOfCard;
 
-console.log()
+let allCard = deck.createNewDeck();
+
+//console.log("All cards " + allCard)
+/**/
+//Check to print out deck
+//console.log(allCard.createNewDeck())
+
+//console.log("First card in deck " + allCard[0].nameOfCard);
+
+
+
+class createdDeck{
+	constructor(){
+		this.deck= allCard
+		//this.shuffle = []
+		this.dealCards = []
+		//this.playerHand1 = []
+		//this.playerHand2 = []
+	}
+
+
+	deal(){
+
+		for (var i = 0; i < allCard.length; i++) {
+
+				//this.dealCards.push( this.deck[i].nameOfCard );
+
+				//Creates random card in loop
+				//console.log("RANDOM CARD : " + this.deck[Math.floor(Math.random() * this.deck.length)].nameOfCard);
+
+				this.dealCards.push(this.deck[Math.floor(Math.random() * this.deck.length)].nameOfCard);
+				
+				//this.dealCards.splice(26);
+				
+		}
+
+		return this.dealCards
+
+		//console.log("Shift this card " + this.dealCards.shift())
+
+
+	}
+
+}
+		
+
+let dealingCards = new createdDeck();
+
+let playerHand1 = dealingCards.deal().splice(0,26);
+
+let playerHand2 = dealingCards.deal().splice(26, 26);
+
+// console.log("Player1 Cards: " + dealingCards.deal().splice(0,25));
+// console.log("Player2 Cards: " + dealingCards.deal().splice(26, 26));
+
+console.log("Player 1 has " + playerHand1.length, playerHand1)
+console.log("Player 2 has " + playerHand2.length, playerHand2)
 
 //Player class for players action
+let whosTurn
+
 class Player {
 
 	constructor(){
@@ -60,14 +117,15 @@ class Player {
 		this.hand = []
 	}
 
-	showCard(win, lose){
+//Cards the player has
+	drawCard(win, lose){
 
 	}
-
+// draw and lose
 	loseCard(){
 
 	}
-
+//draw and win
 	winCard(){
 
 	}
@@ -76,26 +134,21 @@ class Player {
 }
 
 
+var prompt = require('prompt');
+
+prompt.start();
+prompt.get(['player1','player2'], function(err, result){
+
+	let FirstPlayer = result.player1;
 
 
- var prompt = require('prompt');
- 
-  // 
-  // Start the prompt 
-  // 
-  prompt.start();
- 
-  // 
-  // Get two properties from the user: username and email 
-  // 
-  prompt.get(['username', 'email'], function (err, result) {
-    // 
-    // Log the results. 
-    // 
-    console.log('Command-line input received:');
-    console.log('  username: ' + result.username);
-    console.log('  email: ' + result.email);
-  });
+	console.log(result.player1 + ' versus ' + result.player2);
+	console.log("IT'S WAR!!!")
+	console.log(FirstPlayer)
+
+});
+
+
 
 // let createdeck = new DeckOfCard;
 
@@ -114,6 +167,4 @@ class Player {
 
 
 
-// var prompt = require('prompt')
 
-// prompt.start();
